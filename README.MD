@@ -1,0 +1,60 @@
+# rrggbbaa
+
+## Installation
+
+```
+npm install rrggbbaa --save
+```
+
+## Usage
+
+```
+const color = rrggbbaa("rgb(0, 0, 0));
+const colorAsHex = color.red(255).toHex(); // colorAsHex = #FF0000
+```
+
+## API
+### rrggbbaa(input, options)
+
+### .red(value)
+
+### .green(value)
+
+### .blue(value);
+
+### .alpha(value)
+
+### .toRgb();
+
+### .toHex();
+
+## Configuration options
+
+### debug
+
+**type**: boolean
+
+**default**: false
+
+Normally, rrggbbaa silently ignores errors and rolls back changes. With debug set to "true" rrggbbaa will output errors to console.
+
+## Utilities
+
+### parse
+
+**parameters**: input, a value to parse to rgba object. red, green and blue between 0-255 and alpha between 0-100.
+
+**returns**: a plain js object with components of RGBA.
+
+```
+    import { parse } from "rrggbbaa";
+    const color = parse("#FF0000"); // color = { r: 255, g: 0, b: 0, a: 100}
+```
+
+## changes
+
+Please see (CHANGELOG.md)[https://github.com/kallelat/rrggbbaa/CHANGELOG.md]
+
+## license
+
+rrggbbaa is freely distributable under the terms of the (MIT license)[https://github.com/kallelat/rrggbbaa/LICENSE].
