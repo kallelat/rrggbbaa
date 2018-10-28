@@ -20,6 +20,8 @@ const colorAsHexa = color.red(255).toHexa(); // colorAsHexa = #ff0000ff
 
 ### rrggbbaa(input, options)
 
+Creates a new instance of rrggbbaa. If an input is given, will try to parse it. Throws an exception if not a valid color.
+
 ### .red(value)
 
 ### .green(value)

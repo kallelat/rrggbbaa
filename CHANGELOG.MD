@@ -1,5 +1,9 @@
 # changelog
 
+## 1.1.4
+
+- rrggbbaa() constructor can now take another instance of rrggbbaa and it will make a clone
+
 ## 1.1.3
 
 - moved alterComponent to a member function of rrggbbaa

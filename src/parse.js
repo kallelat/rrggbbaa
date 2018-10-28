@@ -10,6 +10,17 @@ import rrggbbaa from "./rrggbbaa";
 import { hexToInteger, scale255To100 } from "./converters";
 
 const parse = input => {
+  // if not value, default to black
+  if (!input) {
+    return {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 100
+    };
+  }
+
+  // try to identify
   if (typeof input === "object" && input instanceof rrggbbaa) {
     return {
       r: input.red(),
@@ -75,12 +86,8 @@ const parse = input => {
     }
   }
 
-  return {
-    r: 0,
-    g: 0,
-    b: 0,
-    a: 100
-  };
+  // nothing matched, throw an error
+  throw new Error("input could not be parsed as a color");
 };
 
 export default parse;
