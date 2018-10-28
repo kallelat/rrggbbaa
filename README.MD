@@ -55,7 +55,7 @@ none yet
 
 ## changes
 
-Please see [CHANGELOG.md](https://github.com/kallelat/rrggbbaa/CHANGELOG.md)
+Please see [CHANGELOG.md](https://github.com/kallelat/rrggbbaa/blob/master/CHANGELOG.MD)
 
 ## license
 
