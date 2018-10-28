@@ -11,8 +11,13 @@ export const hexToInteger = hex => {
   return null;
 };
 
-export const integerToHex = integer =>
-  typeof integer === "number" ? integer.toString(16).toLowerCase() : null;
+export const integerToHex = integer => {
+  if (typeof integer === "number") {
+    const hex = integer.toString(16).toLowerCase();
+    return hex.length === 1 ? `${hex}${hex}` : hex;
+  }
+  return null;
+};
 
 export const scale255To100 = integer => {
   return Math.ceil((integer / 255) * 100);

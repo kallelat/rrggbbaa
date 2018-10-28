@@ -1,5 +1,6 @@
 import defaultOptions from "./default-options";
 import { Components, alternateComponent } from "./components";
+import { integerToHex } from "./converters";
 import parse from "./parse";
 
 class rrggbbaa {
@@ -21,18 +22,21 @@ class rrggbbaa {
   alpha = value => alternateComponent(this, Components.ALPHA, value);
 
   toRgb = () => {
-    return `rgb(${this.get(Components.RED)},${this.get(
-      Components.GREEN
-    )},${this.get(Components.BLUE)})`;
+    return `rgb(${this.red()},${this.green()},${this.blue()})`;
   };
 
-  toRgba = () => {
-    return `rgb(${this.get(Components.RED)},${this.get(
-      Components.GREEN
-    )},${this.get(Components.BLUE)},${this.get(Components.ALPHA) / 100})`;
-  };
+  toRgba = () =>
+    `rgb(${this.red()},${this.green()},${this.blue()},${this.alpha() / 100})`;
+
+  toHex = () =>
+    `#${integerToHex(this.red())}${integerToHex(this.green())}${integerToHex(
+      this.blue()
+    )}`;
+
+  toString = () => (this.alpha() !== 100 ? this.toRgba() : this.toRgb());
 }
 
 export default rrggbbaa;
 
 // TODO: add utilies toRgba(value) and toHexa(value) that use internally rrggbbaa
+// TODO: add support for shorthand syntax

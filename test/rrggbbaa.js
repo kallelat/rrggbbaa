@@ -43,4 +43,19 @@ describe("rrggbbaa.js", () => {
     color.alpha(50);
     expect(color.alpha()).to.equal(50);
   });
+
+  it("parse rgb and output hex", () => {
+    const color = new rrggbbaa("rgb(255, 0,0)");
+    expect(color.toHex()).to.equal("#ff0000");
+  });
+
+  it("toString with rgb value", () => {
+    const color = new rrggbbaa("rgb(255, 0, 0)");
+    expect(color.toString()).to.equal("rgb(255,0,0)");
+  });
+
+  it("toString with rgba value", () => {
+    const color = new rrggbbaa("rgba(255, 0, 0, 0.25)");
+    expect(color.toString()).to.equal("rgb(255,0,0,0.25)");
+  });
 });
