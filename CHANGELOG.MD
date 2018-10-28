@@ -1,5 +1,9 @@
 # changelog
 
+## 1.1.6
+
+- fixed doc typo
+
 ## 1.1.5
 
 - better regexp for detecting rgb and hex

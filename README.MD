@@ -9,7 +9,7 @@ npm install rrggbbaa --save
 ## Usage
 
 ```
-const color = rrggbbaa("rgb(0, 0, 0));
+const color = rrggbbaa("rgb(0, 0, 0)");
 const colorAsHex = color.red(255).toHex(); // colorAsHex = #ff0000
 const colorAsHexa = color.red(255).toHexa(); // colorAsHexa = #ff0000ff
 ```
@@ -18,17 +18,24 @@ const colorAsHexa = color.red(255).toHexa(); // colorAsHexa = #ff0000ff
 
 ## API
 
-### rrggbbaa(input, options)
+### rrggbbaa(input, [options])
 
 Creates a new instance of rrggbbaa. If an input is given, will try to parse it. Throws an exception if not a valid color.
 
-### .red(value)
+Valid input values are rgb(a) and hex(a) strings or existing rrggbbaa instance.
 
-### .green(value)
+### .red([value]), .green([value]), .blue([value]), .alpha([value])
 
-### .blue(value);
+**parameters**: If left empty, return current value for the component. If value given, changes the component value.
 
-### .alpha(value)
+**returns**: If value attribgute is not given, returns value of the component. If value given, returns a reference to rrggbbaa instance.
+
+```
+    import rrggbbaa from "rrggbbaa";
+    const color = new rrggbbaa("#ff0000");
+    color.red(); // 255
+    color.red(0).toHex(); // #000000
+```
 
 ### .inverse()
 
