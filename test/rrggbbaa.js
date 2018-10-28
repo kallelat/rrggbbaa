@@ -17,7 +17,7 @@ describe("rrggbbaa.js", () => {
   it("contruct empty rrggbbaa, export to rgba correctly", () => {
     const color = new rrggbbaa();
     expect(color).to.be.instanceof(rrggbbaa);
-    expect(color.toRgba()).to.equal("rgb(0,0,0,1)");
+    expect(color.toRgba()).to.equal("rgba(0,0,0,1)");
   });
 
   it("set and get red component", () => {
@@ -49,6 +49,11 @@ describe("rrggbbaa.js", () => {
     expect(color.toHex()).to.equal("#ff0000");
   });
 
+  it("parse rgb and output hexa", () => {
+    const color = new rrggbbaa("rgba(255,0,0,1)");
+    expect(color.toHexa()).to.equal("#ff0000ff");
+  });
+
   it("toString with rgb value", () => {
     const color = new rrggbbaa("rgb(255, 0, 0)");
     expect(color.toString()).to.equal("rgb(255,0,0)");
@@ -56,6 +61,6 @@ describe("rrggbbaa.js", () => {
 
   it("toString with rgba value", () => {
     const color = new rrggbbaa("rgba(255, 0, 0, 0.25)");
-    expect(color.toString()).to.equal("rgb(255,0,0,0.25)");
+    expect(color.toString()).to.equal("rgba(255,0,0,0.25)");
   });
 });

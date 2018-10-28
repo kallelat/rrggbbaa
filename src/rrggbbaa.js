@@ -1,6 +1,6 @@
 import defaultOptions from "./default-options";
 import { Components, alternateComponent } from "./components";
-import { integerToHex } from "./converters";
+import { integerToHex, scale100To255 } from "./converters";
 import parse from "./parse";
 
 class rrggbbaa {
@@ -22,16 +22,36 @@ class rrggbbaa {
   alpha = value => alternateComponent(this, Components.ALPHA, value);
 
   toRgb = () => {
-    return `rgb(${this.red()},${this.green()},${this.blue()})`;
+    const red = this.red();
+    const green = this.green();
+    const blue = this.blue();
+    return `rgb(${red},${green},${blue})`;
   };
 
-  toRgba = () =>
-    `rgb(${this.red()},${this.green()},${this.blue()},${this.alpha() / 100})`;
+  toRgba = () => {
+    const red = this.red();
+    const green = this.green();
+    const blue = this.blue();
+    const alpha = this.alpha() / 100;
+    return `rgba(${red},${green},${blue},${alpha})`;
+  };
 
-  toHex = () =>
-    `#${integerToHex(this.red())}${integerToHex(this.green())}${integerToHex(
-      this.blue()
-    )}`;
+  toHex = () => {
+    const red = integerToHex(this.red());
+    const green = integerToHex(this.green());
+    const blue = integerToHex(this.blue());
+
+    return `#${red}${green}${blue}`;
+  };
+
+  toHexa = () => {
+    const red = integerToHex(this.red());
+    const green = integerToHex(this.green());
+    const blue = integerToHex(this.blue());
+    const alpha = integerToHex(scale100To255(this.alpha()));
+
+    return `#${red}${green}${blue}${alpha}`;
+  };
 
   toString = () => (this.alpha() !== 100 ? this.toRgba() : this.toRgb());
 }

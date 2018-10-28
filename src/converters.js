@@ -19,9 +19,8 @@ export const integerToHex = integer => {
   return null;
 };
 
-export const scale255To100 = integer => {
-  return Math.ceil((integer / 255) * 100);
-};
+export const scale255To100 = integer => Math.ceil((integer / 255) * 100);
+export const scale100To255 = integer => Math.ceil((integer / 100) * 255);
 
 export default {
   hexToInteger,
