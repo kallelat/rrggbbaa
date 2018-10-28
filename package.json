@@ -10,7 +10,8 @@
     "build": "babel -d lib/ src/",
     "prepublish": "npm build",
     "test": "npm run build && nyc mocha --require babel-core/register",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
