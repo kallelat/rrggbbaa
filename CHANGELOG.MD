@@ -1,6 +1,6 @@
 # changelog
 
-## 1.0.4
+## 1.1.1
 
 - toRgb(), toRgba(), toHex() and toHexa() utilities added.
 
