@@ -72,6 +72,3 @@ class rrggbbaa {
 }
 
 export default rrggbbaa;
-
-// TODO: add utilies toRgba(value) and toHexa(value) that use internally rrggbbaa
-// TODO: add support for shorthand syntax

@@ -1,25 +1,19 @@
 import "babel-polyfill";
 import { expect } from "chai";
 import { parse } from "../lib/parse";
+import rrggbbaa from "../lib/rrggbbaa";
 
 describe("parse.js", () => {
   it("valid object without alpha", () => {
-    const result = parse({
-      r: 1,
-      g: 2,
-      b: 3
-    });
+    const color = new rrggbbaa("rgb(1, 2, 3)");
+    const result = parse(color);
     expect(result.r).to.equal(1);
     expect(result.a).to.equal(100);
   });
 
   it("valid object with alpha", () => {
-    const result = parse({
-      r: 1,
-      g: 2,
-      b: 3,
-      a: 50
-    });
+    const color = new rrggbbaa("rgba(1, 2, 3, 0.5)");
+    const result = parse(color);
     expect(result.r).to.equal(1);
     expect(result.a).to.equal(50);
   });

@@ -6,20 +6,17 @@ import {
   RegExpForHEXA,
   RegExpForHEXAShort
 } from "./regexp";
+import rrggbbaa from "./rrggbbaa";
 import { hexToInteger, scale255To100 } from "./converters";
 
 const parse = input => {
-  if (typeof input === "object" && input !== null) {
-    const { r, g, b } = input;
-    if (r !== null && g !== null && b !== null) {
-      return {
-        r,
-        g,
-        b,
-        a: input.a || 100
-      };
-    }
-    // dunno
+  if (typeof input === "object" && input instanceof rrggbbaa) {
+    return {
+      r: input.red(),
+      g: input.green(),
+      b: input.blue(),
+      a: input.alpha()
+    };
   } else if (typeof input === "string") {
     // test for rgb
     const rgbMatch = input.match(RegExpForRGB);
