@@ -1,5 +1,9 @@
 # changelog
 
+## 1.1.5
+
+- better regexp for detecting rgb and hex
+
 ## 1.1.4
 
 - rrggbbaa() constructor can now take another instance of rrggbbaa and it will make a clone
