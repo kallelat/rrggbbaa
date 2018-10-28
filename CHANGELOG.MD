@@ -1,5 +1,9 @@
 # changelog
 
+## 1.1.2
+
+- rrggbbaa.inverse() added
+
 ## 1.1.1
 
 - toRgb(), toRgba(), toHex() and toHexa() utilities added.

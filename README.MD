@@ -28,6 +28,8 @@ const colorAsHexa = color.red(255).toHexa(); // colorAsHexa = #ff0000ff
 
 ### .alpha(value)
 
+### .inverse()
+
 ### .toRgb();
 
 ### .toHex();

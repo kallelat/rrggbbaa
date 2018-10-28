@@ -44,6 +44,12 @@ describe("rrggbbaa.js", () => {
     expect(color.alpha()).to.equal(50);
   });
 
+  it("inverse", () => {
+    const color = new rrggbbaa("#000000");
+    color.inverse();
+    expect(color.toHex()).to.equal("#ffffff");
+  });
+
   it("parse rgb and output hex", () => {
     const color = new rrggbbaa("rgb(255, 0,0)");
     expect(color.toHex()).to.equal("#ff0000");

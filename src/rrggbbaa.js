@@ -21,6 +21,13 @@ class rrggbbaa {
   blue = value => alternateComponent(this, Components.BLUE, value);
   alpha = value => alternateComponent(this, Components.ALPHA, value);
 
+  inverse = () => {
+    this.red(255 - this.red());
+    this.green(255 - this.green());
+    this.blue(255 - this.blue());
+    return this;
+  };
+
   toRgb = () => {
     const red = this.red();
     const green = this.green();
