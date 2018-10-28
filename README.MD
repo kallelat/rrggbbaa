@@ -10,8 +10,11 @@ npm install rrggbbaa --save
 
 ```
 const color = rrggbbaa("rgb(0, 0, 0));
-const colorAsHex = color.red(255).toHex(); // colorAsHex = #FF0000
+const colorAsHex = color.red(255).toHex(); // colorAsHex = #ff0000
+const colorAsHexa = color.red(255).toHexa(); // colorAsHexa = #ff0000ff
 ```
+
+**Note: rrggbbaa will always return color codes in lowercase.**
 
 ## API
 
@@ -28,6 +31,10 @@ const colorAsHex = color.red(255).toHex(); // colorAsHex = #FF0000
 ### .toRgb();
 
 ### .toHex();
+
+### .toRgba();
+
+### .toHexa();
 
 ## Configuration options
 
@@ -48,8 +55,8 @@ none yet
 
 ## changes
 
-Please see (CHANGELOG.md)[https://github.com/kallelat/rrggbbaa/CHANGELOG.md]
+Please see [CHANGELOG.md](https://github.com/kallelat/rrggbbaa/CHANGELOG.md)
 
 ## license
 
-rrggbbaa is freely distributable under the terms of the (MIT license)[https://github.com/kallelat/rrggbbaa/LICENSE].
+rrggbbaa is freely distributable under the terms of the [MIT license](https://github.com/kallelat/rrggbbaa/LICENSE).

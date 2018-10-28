@@ -4,6 +4,4 @@ import { rrggbbaa } from "./lib";
 export default rrggbbaa;
 
 // export utilities
-export {
-
-}
+export {};
