@@ -42,7 +42,7 @@ none yet
 
 ## Utilities
 
-### parse
+### parse(input)
 
 **parameters**: input, a value to parse to rgba object. red, green and blue between 0-255 and alpha between 0-100.
 
@@ -52,6 +52,30 @@ none yet
     import { parse } from "rrggbbaa";
     const color = parse("#FF0000"); // color = { r: 255, g: 0, b: 0, a: 100}
 ```
+
+### toRgb(input)
+
+**parameters**: a value to parse, for example "rgb(0,0,0)"
+
+**returns**: rgb color value
+
+### toRgba(input)
+
+**parameters**: a value to parse, for example "rgb(0,0,0)"
+
+**returns**: rgba color value
+
+### toHex(input)
+
+**parameters**: a value to parse, for example "rgb(0,0,0)"
+
+**returns**: hex color value
+
+### toHexa(input)
+
+**parameters**: a value to parse, for example "rgb(0,0,0)"
+
+**returns**: hex color value
 
 ## changes
 
