@@ -14,6 +14,7 @@ const colorAsHex = color.red(255).toHex(); // colorAsHex = #FF0000
 ```
 
 ## API
+
 ### rrggbbaa(input, options)
 
 ### .red(value)
@@ -30,13 +31,7 @@ const colorAsHex = color.red(255).toHex(); // colorAsHex = #FF0000
 
 ## Configuration options
 
-### debug
-
-**type**: boolean
-
-**default**: false
-
-Normally, rrggbbaa silently ignores errors and rolls back changes. With debug set to "true" rrggbbaa will output errors to console.
+none yet
 
 ## Utilities
 

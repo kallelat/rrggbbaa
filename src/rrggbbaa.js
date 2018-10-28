@@ -1,10 +1,5 @@
 import defaultOptions from "./default-options";
-import {
-  Components,
-  validateRange,
-  validateComponent,
-  alternateComponent
-} from "./components";
+import { Components, alternateComponent } from "./components";
 import parse from "./parse";
 
 class rrggbbaa {
@@ -17,14 +12,27 @@ class rrggbbaa {
     this.data[key] = value;
   }
 
-  get(key) {
-    return this.data[key];
-  }
+  get = key => this.data[key];
 
-  red = value => alternateComponent(obj, Components.RED, value);
-  green = value => alternateComponent(obj, Components.GREEN, value);
-  blue = value => alternateComponent(obj, Components.BLUE, value);
-  alpha = value => alternateComponent(obj, Components.ALPHA, value);
+  // TODO: add shorthand versions
+  red = value => alternateComponent(this, Components.RED, value);
+  green = value => alternateComponent(this, Components.GREEN, value);
+  blue = value => alternateComponent(this, Components.BLUE, value);
+  alpha = value => alternateComponent(this, Components.ALPHA, value);
+
+  toRgb = () => {
+    return `rgb(${this.get(Components.RED)},${this.get(
+      Components.GREEN
+    )},${this.get(Components.BLUE)})`;
+  };
+
+  toRgba = () => {
+    return `rgb(${this.get(Components.RED)},${this.get(
+      Components.GREEN
+    )},${this.get(Components.BLUE)},${this.get(Components.ALPHA) / 100})`;
+  };
 }
 
 export default rrggbbaa;
+
+// TODO: add utilies toRgba(value) and toHexa(value) that use internally rrggbbaa

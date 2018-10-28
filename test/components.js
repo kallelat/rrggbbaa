@@ -46,34 +46,22 @@ describe("components.js", () => {
   });
 
   describe("alternateComponent()", () => {
-    const mock = function() {
-      return {
-        [Components.RED]: 7,
-        set: function(component, value) {
-          this[component] = value;
-        },
-        get: function(component) {
-          return this[component];
-        }
-      };
-    };
-
     it("set valid value", () => {
-      const m = mock();
-      alternateComponent(m, Components.RED, 100);
-      expect(m[Components.RED]).to.equal(100);
+      const mock = new rrggbbaa();
+      alternateComponent(mock, Components.RED, 100);
+      expect(mock.get(Components.RED)).to.equal(100);
     });
 
     it("set invalid value", () => {
-      const m = mock();
-      alternateComponent(m, Components.RED, "foobar");
-      expect(m[Components.RED]).to.equal(7);
+      const mock = new rrggbbaa();
+      alternateComponent(mock, Components.RED, "foobar");
+      expect(mock.get(Components.RED)).to.equal(0); // returns original value
     });
 
     it("get value", () => {
-      const m = mock();
-      const value = alternateComponent(m, Components.RED);
-      expect(value).to.equal(7);
+      const mock = new rrggbbaa();
+      const value = alternateComponent(mock, Components.RED);
+      expect(value).to.equal(0);
     });
   });
 });
