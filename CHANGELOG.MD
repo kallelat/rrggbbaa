@@ -3,6 +3,7 @@
 ## 1.1.4
 
 - rrggbbaa() constructor can now take another instance of rrggbbaa and it will make a clone
+- parse() will now throw an exception if given not valid input
 
 ## 1.1.3
 

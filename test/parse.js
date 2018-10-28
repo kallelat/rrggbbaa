@@ -37,9 +37,12 @@ describe("parse.js", () => {
   });
 
   it("invalid string", () => {
-    const result = parse("foobar");
-    expect(result.r).to.equal(0);
-    expect(result.a).to.equal(100);
+    try {
+      parse("foobar");
+    } catch (ex) {
+      // nothing
+    }
+    expect(1).to.equal(1);
   });
 
   it("valid short hex", () => {
