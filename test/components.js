@@ -48,19 +48,19 @@ describe("components.js", () => {
   describe("alternateComponent()", () => {
     it("set valid value", () => {
       const mock = new rrggbbaa();
-      alternateComponent(mock, Components.RED, 100);
+      mock.alter(Components.RED, 100);
       expect(mock.get(Components.RED)).to.equal(100);
     });
 
     it("set invalid value", () => {
       const mock = new rrggbbaa();
-      alternateComponent(mock, Components.RED, "foobar");
+      mock.alter(Components.RED, "foobar");
       expect(mock.get(Components.RED)).to.equal(0); // returns original value
     });
 
     it("get value", () => {
       const mock = new rrggbbaa();
-      const value = alternateComponent(mock, Components.RED);
+      const value = mock.alter(Components.RED);
       expect(value).to.equal(0);
     });
   });

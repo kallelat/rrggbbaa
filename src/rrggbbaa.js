@@ -1,25 +1,33 @@
 import defaultOptions from "./default-options";
-import { Components, alternateComponent } from "./components";
+import { Components, validateComponent } from "./components";
 import { integerToHex, scale100To255 } from "./converters";
 import parse from "./parse";
 
 class rrggbbaa {
   constructor(input, opts) {
     this.options = { ...defaultOptions, ...opts };
-    this.data = parse(input);
+
+    // private data and getter/setter
+    const data = parse(input);
+    this.get = key => data[key];
+    this.set = (key, value) => (data[key] = value);
   }
 
-  set(key, value) {
-    this.data[key] = value;
-  }
+  // changes a single component value
+  alter = (component, value) => {
+    if (value) {
+      if (validateComponent(component, value)) {
+        this.set(component, value);
+      }
+      return this; // chain
+    }
+    return this.get(component);
+  };
 
-  get = key => this.data[key];
-
-  // TODO: add shorthand versions
-  red = value => alternateComponent(this, Components.RED, value);
-  green = value => alternateComponent(this, Components.GREEN, value);
-  blue = value => alternateComponent(this, Components.BLUE, value);
-  alpha = value => alternateComponent(this, Components.ALPHA, value);
+  red = value => this.alter(Components.RED, value);
+  green = value => this.alter(Components.GREEN, value);
+  blue = value => this.alter(Components.BLUE, value);
+  alpha = value => this.alter(Components.ALPHA, value);
 
   inverse = () => {
     this.red(255 - this.red());

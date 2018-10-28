@@ -21,14 +21,4 @@ export const validateComponent = (component, value) => {
   }
 };
 
-export const alternateComponent = (rrggbbaa, component, value) => {
-  if (value) {
-    if (validateComponent(component, value)) {
-      rrggbbaa.set(component, value);
-    }
-    return this; // chain
-  }
-  return rrggbbaa.get(component);
-};
-
 export default Components;

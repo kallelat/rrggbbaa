@@ -1,5 +1,9 @@
 # changelog
 
+## 1.1.3
+
+- moved alterComponent to a member function of rrggbbaa
+
 ## 1.1.2
 
 - rrggbbaa.inverse() added
