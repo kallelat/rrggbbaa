@@ -1,6 +1,6 @@
 {
   "name": "rrggbbaa",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Color code utility and converter library for NodeJS.",
   "main": "index.js",
   "directories": {
