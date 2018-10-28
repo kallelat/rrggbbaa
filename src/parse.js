@@ -31,57 +31,32 @@ const parse = input => {
   } else if (typeof input === "string") {
     // test for rgb
     const rgbMatch = input.match(RegExpForRGB);
-    const rgbaMatch = input.match(RegExpForRGBA);
     if (rgbMatch) {
       return {
-        r: parseInt(rgbMatch[2], 10),
-        g: parseInt(rgbMatch[3], 10),
-        b: parseInt(rgbMatch[4], 10),
-        a: 100
-      };
-    } else if (rgbaMatch) {
-      return {
-        r: parseInt(rgbaMatch[2], 10),
-        g: parseInt(rgbaMatch[3], 10),
-        b: parseInt(rgbaMatch[4], 10),
-        a: parseFloat(rgbaMatch[5]) * 100
+        r: parseInt(rgbMatch[1], 10),
+        g: parseInt(rgbMatch[2], 10),
+        b: parseInt(rgbMatch[3], 10),
+        a: rgbMatch[4] ? parseFloat(rgbMatch[4]) * 100 : 100
       };
     }
 
     // test for hex(a) - both #FFF and #FFFFFF syntaxes
-    const hexMatch = input.length === 7 && input.match(RegExpForHEX);
-    const hexShortMatch = input.length === 4 && input.match(RegExpForHEXShort);
-    const hexaMatch = input.length === 9 && input.match(RegExpForHEXA);
-    const hexaShortMatch =
-      input.length === 5 && input.match(RegExpForHEXAShort);
-
-    if (hexMatch) {
+    const hexMatch = input.match(RegExpForHEX);
+    if (hexMatch && hexMatch[1]) {
+      // short syntax
       return {
-        r: hexToInteger(hexMatch[2]),
-        g: hexToInteger(hexMatch[3]),
-        b: hexToInteger(hexMatch[4]),
-        a: 100
+        r: hexToInteger(hexMatch[1]),
+        g: hexToInteger(hexMatch[2]),
+        b: hexToInteger(hexMatch[3]),
+        a: hexMatch[4] ? scale255To100(hexToInteger(hexMatch[4])) : 100
       };
-    } else if (hexaMatch) {
+    } else {
+      // long syntax
       return {
-        r: hexToInteger(hexaMatch[2]),
-        g: hexToInteger(hexaMatch[3]),
-        b: hexToInteger(hexaMatch[4]),
-        a: scale255To100(hexToInteger(hexaMatch[5]))
-      };
-    } else if (hexShortMatch) {
-      return {
-        r: hexToInteger(hexShortMatch[2]),
-        g: hexToInteger(hexShortMatch[3]),
-        b: hexToInteger(hexShortMatch[4]),
-        a: 100
-      };
-    } else if (hexaShortMatch) {
-      return {
-        r: hexToInteger(hexaShortMatch[2]),
-        g: hexToInteger(hexaShortMatch[3]),
-        b: hexToInteger(hexaShortMatch[4]),
-        a: scale255To100(hexToInteger(hexaShortMatch[5]))
+        r: hexToInteger(hexMatch[5]),
+        g: hexToInteger(hexMatch[6]),
+        b: hexToInteger(hexMatch[7]),
+        a: hexMatch[8] ? scale255To100(hexToInteger(hexMatch[8])) : 100
       };
     }
   }

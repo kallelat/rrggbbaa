@@ -1,13 +1,8 @@
 // TODO: make use of regexp builder
-export const RegExpForRGB = /(rgb)\((\d*),\s?(\d*),\s?(\d*)\)/i;
-export const RegExpForRGBA = /(rgba)\((\d*),\s?(\d*),\s?(\d*),?\s?([\d\.]*)?\)/i;
-export const RegExpForHEX = /(#)([a-zA-Z0-9]{2})([a-zA-Z0-9]{2})([a-zA-Z0-9]{2})/i;
-export const RegExpForHEXShort = /(#)([a-zA-Z0-9]{1})([a-zA-Z0-9]{1})([a-zA-Z0-9]{1})/i;
-export const RegExpForHEXA = /(#)([a-zA-Z0-9]{2})([a-zA-Z0-9]{2})([a-zA-Z0-9]{2})([a-zA-Z0-9]{2})/i;
-export const RegExpForHEXAShort = /(#)([a-zA-Z0-9]{1})([a-zA-Z0-9]{1})([a-zA-Z0-9]{1})([a-zA-Z0-9]{1})/i;
+export const RegExpForRGB = /[rgb|rgba]\((\d*),\s?(\d*),\s?(\d*)[,]?\s?([\d{.]*)\)/i;
+export const RegExpForHEX = /^#([a-fA-F0-9]{1})([a-fA-F0-9]{1})([a-fA-F0-9]{1})([a-fA-F0-9]{1})?$|^#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})?$/i;
 
 export default {
   RegExpForRGB,
-  RegExpForRGBA,
-  RegExpForHEXA
+  RegExpForHEX
 };
