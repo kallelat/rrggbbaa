@@ -1,5 +1,11 @@
 # changelog
 
+## 1.1.7
+
+- removed unused imports in parse.js
+- fixed a potential bug in hex parsing
+- removed console.info...
+
 ## 1.1.6
 
 - fixed doc typo
