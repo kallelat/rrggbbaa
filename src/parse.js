@@ -1,11 +1,4 @@
-import {
-  RegExpForRGB,
-  RegExpForRGBA,
-  RegExpForHEX,
-  RegExpForHEXShort,
-  RegExpForHEXA,
-  RegExpForHEXAShort
-} from "./regexp";
+import { RegExpForRGB, RegExpForHEX } from "./regexp";
 import rrggbbaa from "./rrggbbaa";
 import { hexToInteger, scale255To100 } from "./converters";
 
@@ -42,22 +35,24 @@ const parse = input => {
 
     // test for hex(a) - both #FFF and #FFFFFF syntaxes
     const hexMatch = input.match(RegExpForHEX);
-    if (hexMatch && hexMatch[1]) {
-      // short syntax
-      return {
-        r: hexToInteger(hexMatch[1]),
-        g: hexToInteger(hexMatch[2]),
-        b: hexToInteger(hexMatch[3]),
-        a: hexMatch[4] ? scale255To100(hexToInteger(hexMatch[4])) : 100
-      };
-    } else {
-      // long syntax
-      return {
-        r: hexToInteger(hexMatch[5]),
-        g: hexToInteger(hexMatch[6]),
-        b: hexToInteger(hexMatch[7]),
-        a: hexMatch[8] ? scale255To100(hexToInteger(hexMatch[8])) : 100
-      };
+    if (hexMatch && (hexMatch[1] || hexMatch[5])) {
+      if (hexMatch[1]) {
+        // short syntax
+        return {
+          r: hexToInteger(hexMatch[1]),
+          g: hexToInteger(hexMatch[2]),
+          b: hexToInteger(hexMatch[3]),
+          a: hexMatch[4] ? scale255To100(hexToInteger(hexMatch[4])) : 100
+        };
+      } else {
+        // long syntax
+        return {
+          r: hexToInteger(hexMatch[5]),
+          g: hexToInteger(hexMatch[6]),
+          b: hexToInteger(hexMatch[7]),
+          a: hexMatch[8] ? scale255To100(hexToInteger(hexMatch[8])) : 100
+        };
+      }
     }
   }
 
