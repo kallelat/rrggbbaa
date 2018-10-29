@@ -1,5 +1,9 @@
 # changelog
 
+## 1.2.0
+
+- detect and parse webcolors (red, black, etc)
+
 ## 1.1.7
 
 - removed unused imports in parse.js

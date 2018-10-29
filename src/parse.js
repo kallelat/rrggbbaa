@@ -1,6 +1,7 @@
 import { RegExpForRGB, RegExpForHEX } from "./regexp";
 import rrggbbaa from "./rrggbbaa";
 import { hexToInteger, scale255To100 } from "./converters";
+import WebColors from "./webcolors";
 
 const parse = input => {
   // if not value, default to black
@@ -52,6 +53,13 @@ const parse = input => {
           b: hexToInteger(hexMatch[7]),
           a: hexMatch[8] ? scale255To100(hexToInteger(hexMatch[8])) : 100
         };
+      }
+    }
+
+    // test web colors
+    for (let i = 0; i < WebColors.length; i += 1) {
+      if (WebColors[i].name.toLowerCase() === input.toLowerCase()) {
+        return parse(`#${WebColors[i].hex}`);
       }
     }
   }

@@ -18,6 +18,12 @@ describe("parse.js", () => {
     expect(result.a).to.equal(50);
   });
 
+  it("valid web color", () => {
+    const result = parse("red");
+    expect(result.r).to.equal(255);
+    expect(result.a).to.equal(100);
+  });
+
   it("valid rgb string, fb", () => {
     const result = parse("rgb(0, 1, 8)");
     expect(result.r).to.equal(0);
