@@ -1,5 +1,9 @@
 # changelog
 
+## 1.2.1
+
+- fixed license link in readme.md
+
 ## 1.2.0
 
 - detect and parse webcolors (red, black, etc)
