@@ -1,5 +1,9 @@
 # changelog
 
+## 1.2.3
+
+- fixed license link in readme.md again, stupid me
+
 ## 1.2.2
 
 - webcolors.js was missing from GIT/NPM, added...

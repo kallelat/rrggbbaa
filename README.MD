@@ -94,4 +94,4 @@ Please see [CHANGELOG.md](https://github.com/kallelat/rrggbbaa/blob/master/CHANG
 
 ## license
 
-rrggbbaa is freely distributable under the terms of the [MIT license](https://github.com/kallelat/blob/master/rrggbbaa/LICENSE).
+rrggbbaa is freely distributable under the terms of the [MIT license](https://github.com/kallelat/rrggbbaa/blob/master/LICENSE).
